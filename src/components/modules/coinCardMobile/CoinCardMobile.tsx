@@ -28,7 +28,9 @@ function CoinCardMobile({ data }: Props) {
         <div className="flex w-full justify-between">
           <span className="text-base font-bold text-white">Price :</span>
 
-          <span className="text-base text-white">${data.price}</span>
+          <span className="text-base text-white">
+            ${data.price?.toLocaleString()}
+          </span>
         </div>
 
         <div className="flex w-full justify-between">
@@ -36,11 +38,17 @@ function CoinCardMobile({ data }: Props) {
 
           <div
             className={`flex items-center gap-1 text-base ${
-              data.percentChange1h > 0 ? "text-green" : "text-red"
+              data.percentChange1h > 0
+                ? "text-green"
+                : data.percentChange1h !== 0
+                ? "text-red"
+                : "text-white"
             }`}
           >
-            {getIconPercent(data.percentChange1h)}
-            {Math.abs(data.percentChange1h).toFixed(2)}%
+            {data.percentChange1h !== 0
+              ? getIconPercent(data.percentChange1h)
+              : null}
+            {Math.abs(data.percentChange1h).toFixed(3)}%
           </div>
         </div>
 
@@ -49,11 +57,17 @@ function CoinCardMobile({ data }: Props) {
 
           <div
             className={`flex items-center gap-1 text-base ${
-              data.percentChange24h > 0 ? "text-green" : "text-red"
+              data.percentChange24h > 0
+                ? "text-green"
+                : data.percentChange24h !== 0
+                ? "text-red"
+                : "text-white"
             }`}
           >
-            {getIconPercent(data.percentChange24h)}
-            {Math.abs(data.percentChange24h).toFixed(2)}%
+            {data.percentChange24h !== 0
+              ? getIconPercent(data.percentChange24h)
+              : null}
+            {Math.abs(data.percentChange24h).toFixed(3)}%
           </div>
         </div>
 
@@ -62,11 +76,17 @@ function CoinCardMobile({ data }: Props) {
 
           <div
             className={`flex items-center gap-1 text-base ${
-              data.percentChange7d > 0 ? "text-green" : "text-red"
+              data.percentChange7d > 0
+                ? "text-green"
+                : data.percentChange7d !== 0
+                ? "text-red"
+                : "text-white"
             }`}
           >
-            {getIconPercent(data.percentChange7d)}
-            {Math.abs(data.percentChange7d).toFixed(2)}%
+            {data.percentChange7d !== 0
+              ? getIconPercent(data.percentChange7d)
+              : null}
+            {Math.abs(data.percentChange7d).toFixed(3)}%
           </div>
         </div>
 

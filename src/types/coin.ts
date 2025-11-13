@@ -1,5 +1,7 @@
+// Coin type for storing in IndexedDB and displaying on the website.
 export interface CoinContentType {
   id: number;
+  cmcRank: number;
   name: string;
   symbol: string;
   price: number;
@@ -9,6 +11,8 @@ export interface CoinContentType {
   marketCapByTotalSupply: number;
   volume24h: number;
 }
+
+// Response Api
 
 export interface QuotesCryptoContentType {
   name: string;
@@ -52,7 +56,7 @@ export interface CryptoContentType {
   isActive: number;
   lastUpdated: string;
   dateAdded: string;
-  quotes: [];
+  quotes: QuotesCryptoContentType[];
   isAudited: boolean;
   auditInfoList: [];
   badges: number[];
