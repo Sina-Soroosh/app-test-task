@@ -7,7 +7,7 @@ npm run dev
 ```
 ## Description
 A website has been developed to display a list of cryptocurrencies based on rank using Next.js, with Zustand for state management and IndexedDB to enhance UX.
-
+Data is updated every two minutes.
 ## Library
 
 - axios : For better management of endpoints in the project.
